@@ -1,14 +1,18 @@
+/* Apply word-break-all style */
 .word-break-all {
   word-break: break-all !important;
 }
 
-// TODO: Update edx-bootstrap theme to incorporate these edits.
-.btn, a.btn {
+/* Button styling */
+.btn,
+a.btn {
   text-decoration: none;
   &:hover {
     text-decoration: none;
   }
 }
+
+/* Button link styling */
 .btn-link {
   text-decoration: underline;
   &:hover {
@@ -16,6 +20,7 @@
   }
 }
 
+/* Profile page background banner */
 .profile-page-bg-banner {
   height: 12rem;
   background-image: url('./assets/dot-pattern-light.png');
@@ -23,12 +28,13 @@
   background-size: auto 85%;
 }
 
+/* Username description styling */
 .username-description {
   width: auto;
   position: absolute;
   left: 1.5rem;
   top: 5.25rem;
-  color: $gray-500;
+  color: $gray-500; /* Assuming $gray-500 is a predefined color */
   line-height: 0.9rem;
   font-size: 0.8rem;
   font-style: normal;
@@ -36,16 +42,20 @@
   margin-left: 0.9rem;
 }
 
+/* Margin bottom 2rem */
 .mb-2rem {
   margin-bottom: 2rem;
 }
 
+/* Icon visibility off styling */
 .icon-visibility-off {
   height: 1rem;
-  color: $gray-500;
+  color: $gray-500; /* Assuming $gray-500 is a predefined color */
 }
 
+/* Profile page styling */
 .profile-page {
+  /* Edit section header styling */
   .edit-section-header {
     @extend .h6;
     display: block;
@@ -54,10 +64,12 @@
     margin: 0;
   }
 
+  /* Label edit section header styling */
   label.edit-section-header {
     margin-bottom: $spacer * .5;
   }
 
+  /* Profile avatar wrap styling */
   .profile-avatar-wrap {
     @include media-breakpoint-up(md) {
       max-width: 12rem;
@@ -67,8 +79,9 @@
     }
   }
 
+  /* Profile avatar menu container styling */
   .profile-avatar-menu-container {
-    background: rgba(0,0,0,.65);
+    background: rgba(0, 0, 0, .65);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -78,10 +91,11 @@
     border-radius: 50%;
 
     @include media-breakpoint-up(md) {
-      background: linear-gradient(to top, rgba(0,0,0,.65) 4rem, rgba(0,0,0,0) 4rem);
+      background: linear-gradient(to top, rgba(0, 0, 0, .65) 4rem, rgba(0, 0, 0, 0) 4rem);
       align-items: flex-end;
     }
 
+    /* Button styling within profile avatar menu container */
     .btn {
       text-decoration: none;
       @include media-breakpoint-up(md) {
@@ -89,13 +103,14 @@
       }
     }
 
+    /* Dropdown button styling */
     .dropdown {
       @include media-breakpoint-up(md) {
         margin-bottom: 1.2rem;
       }
 
       .btn {
-        color: $white;
+        color: $white; /* Assuming $white is a predefined color */
         background: transparent;
         border-color: transparent;
         margin: 0;
@@ -103,6 +118,7 @@
     }
   }
 
+  /* Profile avatar styling */
   .profile-avatar {
     width: 5rem;
     height: 5rem;
@@ -113,6 +129,7 @@
       height: 12rem;
     }
 
+    /* Profile avatar edit button styling */
     .profile-avatar-edit-button {
       border: none;
       position: absolute;
@@ -124,28 +141,34 @@
       justify-content: center;
       padding-top: .1rem;
       font-weight: 600;
-      background: rgba(0,0,0,.5);
-      border-radius:0;
+      background: rgba(0, 0, 0, .5);
+      border-radius: 0;
       transition: opacity 200ms ease;
 
       @include media-breakpoint-up(md) {
         height: 4rem;
       }
 
-      &:focus, &:hover, &:active, &.active {
+      &:focus,
+      &:hover,
+      &:active,
+      &.active {
         opacity: 1;
       }
     }
   }
 
+  /* Certificate styling */
   .certificate {
     position: relative;
 
+    /* Certificate title styling */
     .certificate-title {
-      font-family: $font-family-serif;
+      font-family: $font-family-serif; /* Assuming $font-family-serif is a predefined font family */
       font-weight: 400;
     }
 
+    /* Certificate type illustration styling */
     .certificate-type-illustration {
       position: absolute;
       top: 1rem;
@@ -158,6 +181,7 @@
       background-position: right top;
     }
 
+    /* Card body styling */
     .card-body {
       position: relative;
     }

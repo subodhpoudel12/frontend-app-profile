@@ -1,20 +1,20 @@
 import { defineMessages } from '@edx/frontend-platform/i18n';
 
 const messages = defineMessages({
-  'profile.name.full.name': {
-    id: 'profile.name.full.name',
-    defaultMessage: 'Full Name',
-    description: 'A section of a user profile',
+  'profile.phone.label': {
+    id: 'profile.phone.label',
+    defaultMessage: 'Phone Number',
+    description: 'A section of a user profile for the phone number',
   },
-  'profile.name.details': {
-    id: 'profile.name.details',
-    defaultMessage: 'This is the name that appears in your account and on your certificates.',
-    description: 'Describes the area for a user to update their name.',
+  'profile.phone.details': {
+    id: 'profile.phone.details',
+    defaultMessage: 'This is the phone number associated with your account.',
+    description: 'Describes the area for a user to update their phone number.',
   },
-  'profile.name.empty': {
-    id: 'profile.name.empty',
-    defaultMessage: 'Add name',
-    description: 'The affordance to add a name to a user’s profile.',
+  'profile.phone.empty': {
+    id: 'profile.phone.empty',
+    defaultMessage: 'Add phone number',
+    description: 'The affordance to add a phone number to a user’s profile.',
   },
 });
 

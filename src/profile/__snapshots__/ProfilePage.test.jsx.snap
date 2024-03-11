@@ -276,7 +276,7 @@ exports[`<ProfilePage /> Renders correctly in various states test country edit w
                 className="edit-section-header"
                 id={null}
               >
-                Full Name
+                Your Full Name
                 <button
                   className="float-right px-0 btn btn-link btn-sm"
                   disabled={false}
@@ -2658,7 +2658,7 @@ exports[`<ProfilePage /> Renders correctly in various states test education edit
                 className="edit-section-header"
                 id={null}
               >
-                Full Name
+                Your Full Name
                 <button
                   className="float-right px-0 btn btn-link btn-sm"
                   disabled={false}
@@ -3834,7 +3834,7 @@ exports[`<ProfilePage /> Renders correctly in various states test preferreded la
                 className="edit-section-header"
                 id={null}
               >
-                Full Name
+                Your Full Name
                 <button
                   className="float-right px-0 btn btn-link btn-sm"
                   disabled={false}
@@ -5918,7 +5918,7 @@ exports[`<ProfilePage /> Renders correctly in various states viewing other profi
                 className="edit-section-header"
                 id={null}
               >
-                Full Name
+                Your Full Name
               </h2>
             </div>
             <p
@@ -6369,7 +6369,7 @@ exports[`<ProfilePage /> Renders correctly in various states viewing own profile
                 className="edit-section-header"
                 id={null}
               >
-                Full Name
+                Your Full Name
                 <button
                   className="float-right px-0 btn btn-link btn-sm"
                   disabled={false}
@@ -7418,7 +7418,7 @@ exports[`<ProfilePage /> Renders correctly in various states while saving an edi
                 className="edit-section-header"
                 id={null}
               >
-                Full Name
+                Your Full Name
                 <button
                   className="float-right px-0 btn btn-link btn-sm"
                   disabled={false}
@@ -8534,7 +8534,7 @@ exports[`<ProfilePage /> Renders correctly in various states while saving an edi
                 className="edit-section-header"
                 id={null}
               >
-                Full Name
+                Your Full Name
                 <button
                   className="float-right px-0 btn btn-link btn-sm"
                   disabled={false}
@@ -9568,7 +9568,7 @@ exports[`<ProfilePage /> Renders correctly in various states without credentials
                 className="edit-section-header"
                 id={null}
               >
-                Full Name
+                Your Full Name
                 <button
                   className="float-right px-0 btn btn-link btn-sm"
                   disabled={false}

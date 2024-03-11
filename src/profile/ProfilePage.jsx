@@ -42,6 +42,7 @@ import { profilePageSelector } from './data/selectors';
 import messages from './ProfilePage.messages';
 
 import withParams from '../utils/hoc';
+import StudentInfo from './forms/studentInfo';
 
 ensureConfig(['CREDENTIALS_BASE_URL', 'LMS_BASE_URL'], 'ProfilePage');
 
@@ -212,9 +213,12 @@ class ProfilePage extends React.Component {
       <div className="container-fluid">
         <div className="row align-items-center pt-4 mb-4 pt-md-0 mb-md-0">
           <div className="col-auto col-md-4 col-lg-3">
-            <div className="d-flex align-items-center d-md-block">
+            <div style={{ display: 'flex', alignItems: 'center' }}>
               <ProfileAvatar
-                className="mb-md-3"
+                style={{
+                  marginBottom: '1.5rem', // Adjust as needed
+                  marginRight: '1rem',
+                }} // Adjust as needed
                 src={profileImage.src}
                 isDefault={profileImage.isDefault}
                 onSave={this.handleSaveProfilePhoto}
@@ -223,6 +227,7 @@ class ProfilePage extends React.Component {
                 isEditable={this.isAuthenticatedUserProfile() && !requiresParentalConsent}
               />
             </div>
+
           </div>
           <div className="col">
             <div className="d-md-none">
@@ -258,6 +263,7 @@ class ProfilePage extends React.Component {
                 {...commonFormProps}
               />
             )}
+            <StudentInfo />
             {isLanguageBlockVisible && (
               <PreferredLanguage
                 languageProficiencies={languageProficiencies}
@@ -275,13 +281,13 @@ class ProfilePage extends React.Component {
               />
             )}
             {isSocialLinksBLockVisible && (
-              <SocialLinks
-                socialLinks={socialLinks}
-                draftSocialLinksByPlatform={draftSocialLinksByPlatform}
-                visibilitySocialLinks={visibilitySocialLinks}
-                formId="socialLinks"
-                {...commonFormProps}
-              />
+            <SocialLinks
+              socialLinks={socialLinks}
+              draftSocialLinksByPlatform={draftSocialLinksByPlatform}
+              visibilitySocialLinks={visibilitySocialLinks}
+              formId="socialLinks"
+              {...commonFormProps}
+            />
             )}
           </div>
           <div className="pt-md-3 col-md-8 col-lg-7 offset-lg-1">

@@ -24,7 +24,7 @@ Purpose
 
 This is a micro-frontend application responsible for the display and updating of user profiles.
 
-When a user views their own profile, they're given fields to edit their full name, location, primary spoken language, education, social links, and bio.  Each field also has a dropdown to select the visibility of that field - i.e., whether it can be viewed by other learners.
+When a user views their own profile, they're given fields to edit their Your Full Name, location, primary spoken language, education, social links, and bio.  Each field also has a dropdown to select the visibility of that field - i.e., whether it can be viewed by other learners.
 
 When a user views someone else's profile, they see all those fields that that user set as public.
 

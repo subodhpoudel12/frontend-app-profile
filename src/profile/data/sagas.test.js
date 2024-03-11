@@ -115,7 +115,7 @@ describe('RootSaga', () => {
     const selectorData = {
       username: 'my username',
       drafts: {
-        name: 'Full Name',
+        name: 'Your Full Name',
       },
       preferences: {},
     };
@@ -124,13 +124,13 @@ describe('RootSaga', () => {
       const action = profileActions.saveProfile('ze form id', 'my username');
       const gen = handleSaveProfile(action);
       const profile = {
-        name: 'Full Name',
+        name: 'Your Full Name',
         levelOfEducation: 'b',
       };
       expect(gen.next().value).toEqual(select(handleSaveProfileSelector));
       expect(gen.next(selectorData).value).toEqual(put(profileActions.saveProfileBegin()));
       expect(gen.next().value).toEqual(call(ProfileApiService.patchProfile, 'my username', {
-        name: 'Full Name',
+        name: 'Your Full Name',
       }));
       // The library would supply the result of the above call
       // as the parameter to the NEXT yield.  Here:

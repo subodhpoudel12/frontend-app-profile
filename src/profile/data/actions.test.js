@@ -56,7 +56,7 @@ describe('SAVE profile actions', () => {
   });
 
   it('should create an action to signal user profile save success', () => {
-    const accountData = { name: 'Full Name' };
+    const accountData = { name: 'Your Full Name' };
     const preferencesData = { visibility: { name: 'private' } };
     const expectedAction = {
       type: SAVE_PROFILE.SUCCESS,

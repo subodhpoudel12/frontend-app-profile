@@ -168,6 +168,14 @@ export const handleSaveProfileSelector = createSelector(
     preferences,
   }),
 );
+export const phoneSelector = createSelector(
+  editableFormSelector,
+  (editableForm, sortedPhoneNumbers, phoneMessages) => ({
+    ...editableForm,
+    sortedPhoneNumbers,
+    phoneMessages,
+  }),
+);
 
 // Reformats the social links in a platform-keyed hash.
 const socialLinksByPlatformSelector = createSelector(
@@ -238,6 +246,7 @@ export const visibilitiesSelector = createSelector(
           visibilityLanguageProficiencies: preferences.visibilityLanguageProficiencies || 'all_users',
           visibilityName: preferences.visibilityName || 'all_users',
           visibilitySocialLinks: preferences.visibilitySocialLinks || 'all_users',
+          visibilityPhoneNo: preferences.visibilityPhoneNo || 'all_users', // Added visibility for phone number
         };
       case 'private':
         return {
@@ -248,11 +257,12 @@ export const visibilitiesSelector = createSelector(
           visibilityLanguageProficiencies: 'private',
           visibilityName: 'private',
           visibilitySocialLinks: 'private',
+          visibilityPhoneNo: 'private', // Added visibility for phone number
         };
       case 'all_users':
       default:
         // All users is intended to fall through to default.
-        // If there is no value for accountPrivacy in perferences, that means it has not been
+        // If there is no value for accountPrivacy in preferences, that means it has not been
         // explicitly set yet. The server assumes - today - that this means "all_users",
         // so we emulate that here in the client.
         return {
@@ -263,6 +273,7 @@ export const visibilitiesSelector = createSelector(
           visibilityLanguageProficiencies: 'all_users',
           visibilityName: 'all_users',
           visibilitySocialLinks: 'all_users',
+          visibilityPhoneNo: 'all_users', // Added visibility for phone number
         };
     }
   },

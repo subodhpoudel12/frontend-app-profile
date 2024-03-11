@@ -69,7 +69,7 @@ export function* handleFetchProfile(action) {
 
     // Set initial visibility values for account
     // Set account_privacy as custom is necessary so that when viewing another user's profile,
-    // their full name is displayed and change visibility forms are worked correctly
+    // their Your Full Name is displayed and change visibility forms are worked correctly
     if (isAuthenticatedUserProfile && result[0].accountPrivacy === 'all_users') {
       yield call(ProfileApiService.patchPreferences, action.payload.username, {
         account_privacy: 'custom',

@@ -6,7 +6,7 @@ import { sendTrackingLogEvent } from '@edx/frontend-platform/analytics';
 import { ensureConfig, getConfig } from '@edx/frontend-platform';
 import { AppContext } from '@edx/frontend-platform/react';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
-import { Alert, Hyperlink } from '@edx/paragon';
+import { Alert, Button, Hyperlink } from '@edx/paragon';
 
 // Actions
 import {
@@ -21,8 +21,6 @@ import {
 
 // Components
 import ProfileAvatar from './forms/ProfileAvatar';
-import Name from './forms/Name';
-import Country from './forms/Country';
 import PreferredLanguage from './forms/PreferredLanguage';
 import Education from './forms/Education';
 import SocialLinks from './forms/SocialLinks';
@@ -166,10 +164,6 @@ class ProfilePage extends React.Component {
   renderContent() {
     const {
       profileImage,
-      name,
-      visibilityName,
-      country,
-      visibilityCountry,
       levelOfEducation,
       visibilityLevelOfEducation,
       socialLinks,
@@ -186,6 +180,8 @@ class ProfilePage extends React.Component {
       requiresParentalConsent,
       isLoadingProfile,
     } = this.props;
+    const { params } = this.props;
+    const { username } = params;
 
     if (isLoadingProfile) {
       return <PageLoading srMessage={this.props.intl.formatMessage(messages['profile.loading'])} />;
@@ -206,19 +202,14 @@ class ProfilePage extends React.Component {
     const isSocialLinksBLockVisible = isBlockVisible(socialLinks.some((link) => link.socialLink !== null));
     const isBioBlockVisible = isBlockVisible(bio);
     const isCertificatesBlockVisible = isBlockVisible(courseCertificates.length);
-    const isNameBlockVisible = isBlockVisible(name);
-    const isLocationBlockVisible = isBlockVisible(country);
 
     return (
       <div className="container-fluid">
         <div className="row align-items-center pt-4 mb-4 pt-md-0 mb-md-0">
           <div className="col-auto col-md-4 col-lg-3">
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div className="d-flex align-items-center d-md-block">
               <ProfileAvatar
-                style={{
-                  marginBottom: '1.5rem', // Adjust as needed
-                  marginRight: '1rem',
-                }} // Adjust as needed
+                className="mb-md-3"
                 src={profileImage.src}
                 isDefault={profileImage.isDefault}
                 onSave={this.handleSaveProfilePhoto}
@@ -227,7 +218,6 @@ class ProfilePage extends React.Component {
                 isEditable={this.isAuthenticatedUserProfile() && !requiresParentalConsent}
               />
             </div>
-
           </div>
           <div className="col">
             <div className="d-md-none">
@@ -247,48 +237,8 @@ class ProfilePage extends React.Component {
             <div className="d-md-none mb-4">
               {this.renderViewMyRecordsButton()}
             </div>
-            {isNameBlockVisible && (
-              <Name
-                name={name}
-                visibilityName={visibilityName}
-                formId="name"
-                {...commonFormProps}
-              />
-            )}
-            {isLocationBlockVisible && (
-              <Country
-                country={country}
-                visibilityCountry={visibilityCountry}
-                formId="country"
-                {...commonFormProps}
-              />
-            )}
-            <StudentInfo />
-            {isLanguageBlockVisible && (
-              <PreferredLanguage
-                languageProficiencies={languageProficiencies}
-                visibilityLanguageProficiencies={visibilityLanguageProficiencies}
-                formId="languageProficiencies"
-                {...commonFormProps}
-              />
-            )}
-            {isEducationBlockVisible && (
-              <Education
-                levelOfEducation={levelOfEducation}
-                visibilityLevelOfEducation={visibilityLevelOfEducation}
-                formId="levelOfEducation"
-                {...commonFormProps}
-              />
-            )}
-            {isSocialLinksBLockVisible && (
-            <SocialLinks
-              socialLinks={socialLinks}
-              draftSocialLinksByPlatform={draftSocialLinksByPlatform}
-              visibilitySocialLinks={visibilitySocialLinks}
-              formId="socialLinks"
-              {...commonFormProps}
-            />
-            )}
+            <StudentInfo username={username} />
+            <Button href={`/profile/organization-register/${username}`}>Register organization</Button>
           </div>
           <div className="pt-md-3 col-md-8 col-lg-7 offset-lg-1">
             {!this.isYOBDisabled() && this.renderAgeMessage()}
@@ -315,6 +265,33 @@ class ProfilePage extends React.Component {
                 {...commonFormProps}
               />
             )}
+            {isLanguageBlockVisible && (
+              <PreferredLanguage
+                languageProficiencies={languageProficiencies}
+                visibilityLanguageProficiencies={visibilityLanguageProficiencies}
+                formId="languageProficiencies"
+                {...commonFormProps}
+              />
+            )}
+            {isEducationBlockVisible && (
+              <Education
+                levelOfEducation={levelOfEducation}
+                visibilityLevelOfEducation={visibilityLevelOfEducation}
+                formId="levelOfEducation"
+                {...commonFormProps}
+              />
+            )}
+            {isSocialLinksBLockVisible && (
+              <SocialLinks
+                socialLinks={socialLinks}
+                draftSocialLinksByPlatform={draftSocialLinksByPlatform}
+                visibilitySocialLinks={visibilitySocialLinks}
+                formId="socialLinks"
+                {...commonFormProps}
+              />
+            )}
+            <Button href="/profile/user-enrollments">user enrollments Details</Button>
+            <Button href={`/profile/student-register/${username}`}>Register Student Info</Button>
           </div>
         </div>
       </div>

@@ -1,199 +1,166 @@
-/* User CSS Styles */
-.user {
-  /* Apply word-break-all style */
-  .word-break-all {
-    word-break: break-all !important;
-  }
+.word-break-all {
+  word-break: break-all !important;
+}
 
-  /* Button styling */
-  .btn,
-  a.btn {
+// TODO: Update edx-bootstrap theme to incorporate these edits.
+.btn, a.btn {
+  text-decoration: none;
+  &:hover {
     text-decoration: none;
-    &:hover {
-      text-decoration: none;
-    }
   }
-
-  /* Button link styling */
-  .btn-link {
+}
+.btn-link {
+  text-decoration: underline;
+  &:hover {
     text-decoration: underline;
-    &:hover {
-      text-decoration: underline;
+  }
+}
+
+.profile-page-bg-banner {
+  height: 12rem;
+  background-image: url('./assets/dot-pattern-light.png');
+  background-repeat: repeat-x;
+  background-size: auto 85%;
+}
+
+.username-description {
+  width: auto;
+  position: absolute;
+  left: 1.5rem;
+  top: 5.25rem;
+  color: $gray-500;
+  line-height: 0.9rem;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 400;
+  margin-left: 0.9rem;
+}
+
+.mb-2rem {
+  margin-bottom: 2rem;
+}
+
+.icon-visibility-off {
+  height: 1rem;
+  color: $gray-500;
+}
+
+.profile-page {
+  .edit-section-header {
+    @extend .h5;
+    display: block;
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+
+
+  label.edit-section-header {
+    margin-bottom: $spacer * .5;
+  }
+
+  .profile-avatar-wrap {
+    @include media-breakpoint-up(md) {
+      max-width: 12rem;
+      margin-right: 0;
+      margin-top: -8rem;
+      margin-bottom: 2rem;
     }
   }
 
-  /* Profile page background banner */
-  .profile-page-bg-banner {
-    height: 12rem;
-    background-image: url('./assets/dot-pattern-light.png');
-    background-repeat: repeat-x;
-    background-size: auto 85%;
-  }
-
-  /* Username description styling */
-  .username-description {
-    width: auto;
+  .profile-avatar-menu-container {
+    background: rgba(0,0,0,.65);
     position: absolute;
-    left: 1.5rem;
-    top: 5.25rem;
-    color: $gray-500; /* Assuming $gray-500 is a predefined color */
-    line-height: 0.9rem;
-    font-size: 0.8rem;
-    font-style: normal;
-    font-weight: 400;
-    margin-left: 0.9rem;
-  }
-
-  /* Margin bottom 2rem */
-  .mb-2rem {
-    margin-bottom: 2rem;
-  }
-
-  /* Icon visibility off styling */
-  .icon-visibility-off {
-    height: 1rem;
-    color: $gray-500; /* Assuming $gray-500 is a predefined color */
-  }
-
-  /* Profile page styling */
-  .profile-page {
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-  }
-  
-  /* Profile avatar wrap styling */
-  .profile-avatar-wrap {
-    position: relative;
-    margin-bottom: 2rem;
-  }
-  
-  /* Profile avatar styling */
-  .profile-avatar {
-    width: 4rem; /* Adjust the width as needed */
-    height: 4rem; /* Adjust the height as needed */
     border-radius: 50%;
-  }
-  
-  /* Profile avatar edit button styling */
-  .profile-avatar-edit-button {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-weight: 600;
-    border-radius: 0.5rem;
-    cursor: pointer;
+
+    @include media-breakpoint-up(md) {
+      background: linear-gradient(to top, rgba(0,0,0,.65) 4rem, rgba(0,0,0,0) 4rem);
+      align-items: flex-end;
+    }
+
+    .btn {
+      text-decoration: none;
+      @include media-breakpoint-up(md) {
+        margin-bottom: 1.2rem;
+      }
+    }
+
+    .dropdown {
+      @include media-breakpoint-up(md) {
+        margin-bottom: 1.2rem;
+      }
+
+      .btn {
+        color: $white;
+        background: transparent;
+        border-color: transparent;
+        margin: 0;
+      }
+    }
   }
 
-    /* Profile avatar menu container styling */
-    .profile-avatar-menu-container {
-      background: rgba(0, 0, 0, .65);
+  .profile-avatar {
+    width: 5rem;
+    height: 5rem;
+    position: relative;
+
+    @include media-breakpoint-up(md) {
+      width: 12rem;
+      height: 12rem;
+    }
+
+    .profile-avatar-edit-button {
+      border: none;
       position: absolute;
-      width: 100%;
       height: 100%;
+      left: 0;
+      width: 100%;
+      bottom: 0;
       display: flex;
       justify-content: center;
-      align-items: center;
-      border-radius: 50%;
+      padding-top: .1rem;
+      font-weight: 600;
+      background: rgba(0,0,0,.5);
+      border-radius:0;
+      transition: opacity 200ms ease;
 
       @include media-breakpoint-up(md) {
-        background: linear-gradient(to top, rgba(0, 0, 0, .65) 4rem, rgba(0, 0, 0, 0) 4rem);
-        align-items: flex-end;
+        height: 4rem;
       }
 
-      /* Button styling within profile avatar menu container */
-      .btn {
-        text-decoration: none;
-        @include media-breakpoint-up(md) {
-          margin-bottom: 1.2rem;
-        }
-      }
-
-      /* Dropdown button styling */
-      .dropdown {
-        @include media-breakpoint-up(md) {
-          margin-bottom: 1.2rem;
-        }
-
-        .btn {
-          color: $white; /* Assuming $white is a predefined color */
-          background: transparent;
-          border-color: transparent;
-          margin: 0;
-        }
-      }
-    }
-
-    /* Profile avatar styling */
-    .profile-avatar {
-      width: 4rem; /* Adjust the width as needed */
-      height: 4rem; /* Adjust the height as needed */
-      position: relative;
-    
-      @include media-breakpoint-up(md) {
-        width: 8rem; /* Adjust the width for medium-sized screens */
-        height: 8rem; /* Adjust the height for medium-sized screens */
-      }
-    
-      /* Profile avatar edit button styling */
-      .profile-avatar-edit-button {
-        border: none;
-        position: absolute;
-        height: 100%;
-        left: 0;
-        width: 100%;
-        bottom: 0;
-        display: flex;
-        justify-content: center;
-        padding-top: .1rem;
-        font-weight: 600;
-        background: rgba(0, 0, 0, .5);
-        border-radius: 0;
-        transition: opacity 200ms ease;
-    
-        @include media-breakpoint-up(md) {
-          height: 3rem; /* Adjust the height for medium-sized screens */
-        }
-    
-        &:focus,
-        &:hover,
-        &:active,
-        &.active {
-          opacity: 1;
-        }
-      }
-    }
-    /* Certificate styling */
-    .certificate {
-      position: relative;
-
-      /* Certificate title styling */
-      .certificate-title {
-        font-family: $font-family-serif; /* Assuming $font-family-serif is a predefined font family */
-        font-weight: 400;
-      }
-
-      /* Certificate type illustration styling */
-      .certificate-type-illustration {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        bottom: 0;
-        width: 12rem;
-        opacity: .06;
-        background-size: 90%;
-        background-repeat: no-repeat;
-        background-position: right top;
-      }
-
-      /* Card body styling */
-      .card-body {
-        position: relative;
+      &:focus, &:hover, &:active, &.active {
+        opacity: 1;
       }
     }
   }
 
+  .certificate {
+    position: relative;
+
+    .certificate-title {
+      font-family: $font-family-serif;
+      font-weight: 400;
+    }
+
+    .certificate-type-illustration {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      bottom: 0;
+      width: 12rem;
+      opacity: .06;
+      background-size: 90%;
+      background-repeat: no-repeat;
+      background-position: right top;
+    }
+
+    .card-body {
+      position: relative;
+    }
+  }
+}

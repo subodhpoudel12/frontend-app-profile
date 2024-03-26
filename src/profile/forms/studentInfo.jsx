@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-const StudentInfo = () => {
+const StudentInfo = ({ username }) => {
   const [studentData, setStudentData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -10,8 +11,7 @@ const StudentInfo = () => {
         const response = await fetch('http://127.0.0.1:8080/student/', {
           method: 'GET',
           headers: {
-            Accept: 'application/json', // Removed unnecessary quotes
-            'X-CSRFToken': 'Q1MIbv3Y34bhqGRmWK5kZ9c2FuAkAUy7KG8Q13Tf62fB5ufKNkFXY8YBsgQtbYMQ', // Ensure CSRF token is correct
+            Accept: 'application/json',
           },
         });
         if (!response.ok) {
@@ -32,18 +32,47 @@ const StudentInfo = () => {
       {error ? (
         <p>Error: {error.message}</p>
       ) : (
-        studentData && studentData.map((student) => (
-          <div key={student.id}>
-            <h2>Student Information</h2>
-            <p>Email: {student.email}</p>
-            <p>Full name: {student.fullName}</p>
-            <p>District: {student.district}</p>
-            <p>Local Level: {student.localLevel}</p>
-          </div>
-        ))
+        studentData && studentData
+          .filter(student => student.fullName === username) // Filter data based on username
+          .map((student) => (
+            <div key={student.id}>
+              <h5>Full Name</h5>
+              <p>{username}</p>
+              <h5>Email</h5>
+              <p>{student.email}</p>
+              <h5>Organization</h5>
+              <p>{student.organization.organizationName}</p>
+              <h5>Fathers Name</h5>
+              <p>{student.fatherName}</p>
+              <h5>Province</h5>
+              <p>{student.province}</p>
+              <h5>District</h5>
+              <p>{student.district}</p>
+              <h5>Local Level</h5>
+              <p>{student.localLevel}</p>
+              <h5>Ward No</h5>
+              <p>{student.wardNo}</p>
+              <h5>Tole</h5>
+              <p>{student.tole}</p>
+              <h5>Guardian Name</h5>
+              <p>{student.guardianName}</p>
+              <h5>Guardian Phone No</h5>
+              <p>{student.guardianPhoneNo}</p>
+              <h5>Grade</h5>
+              <p>{student.grade}</p>
+              <h5>Section</h5>
+              <p>{student.section}</p>
+              <h5>Roll No</h5>
+              <p>{student.rollNo}</p>
+            </div>
+          ))
       )}
     </div>
   );
+};
+
+StudentInfo.propTypes = {
+  username: PropTypes.string.isRequired,
 };
 
 export default StudentInfo;
